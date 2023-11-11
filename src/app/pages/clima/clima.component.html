@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="search-box">
+        <i class='bx bxs-map'></i>
+        <input id="cityInput" [(ngModel)]="city" placeholder="Digite a cidade.." />
+        <button class="bx bx-search" (click)="getWeatherData()"></button>
+    </div>
+
+    <div class="weather-box">
+        <div class="box">
+            <div class="info-weather">
+                <div class="weather">
+                    <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+                    <img *ngIf="weatherData.weather[0].icon" [src]="getWeatherIconUrl(weatherData.weather[0].icon)"
+                        alt="Weather Icon">
+                    <p class="temperatura">{{ convertKelvinToCelsius(weatherData.main.temp) }}°C</p>
+                    <p class="desc">{{ translateWeatherDescription(weatherData.weather[0].description) }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="weather-details" *ngIf="weatherData">
+        <div class="umidade">
+            <i class='bx bx-water'></i>
+            <div class="text">
+                <div class="info-umidade">
+                    <span>{{ weatherData.main.humidity }}%</span>
+                </div>
+                <p>Umidade</p>
+            </div>
+        </div>
+
+        <div class="wind">
+            <i class='bx bx-wind'></i>
+            <div class="text">
+                <div class="info-wind">
+                    <span>{{ convertMetersPerSecondToKilometersPerHour(weatherData.wind.speed) }} km/h</span>
+                </div>
+                <p>Vento</p>
+            </div>
+        </div>
+    </div>
+</div>
