@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "clima:build:production"
+              "buildTarget": "clima:build:production"
             },
             "development": {
-              "browserTarget": "clima:build:development"
+              "buildTarget": "clima:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "clima:build"
+            "buildTarget": "clima:build"
           }
         },
         "test": {
